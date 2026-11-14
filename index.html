@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ElyraMC — Free Hypixel SkyBlock Macros</title>
+  <meta name="description" content="ElyraMC is a free Fabric mod for Minecraft 26.1.2 with Hypixel SkyBlock macros — flipping, mining, quests and combat — run from one smooth in-game menu.">
+  <meta name="theme-color" content="#05070f">
+  <link rel="icon" href="assets/img/icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="#features" data-tab="features">
+      <img src="assets/img/icon.png" alt="" width="28" height="28">
+      <span>Elyra<b>MC</b></span>
+    </a>
+    <nav class="tabs" role="tablist">
+      <a href="#features" data-tab="features" role="tab">Features</a>
+      <a href="#download" data-tab="download" role="tab">Download</a>
+      <span class="tab-pill" aria-hidden="true"></span>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#download" data-tab="download">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
+      Download
+    </a>
+  </header>
+
+  <!-- ═══════════════════════════════ FEATURES ═══════════════════════════════ -->
+  <main class="view" id="view-features">
+
+    <section class="hero">
+      <div class="badge reveal"><span class="dot"></span>100% free · Minecraft 26.1.2 · Fabric</div>
+      <img class="hero-logo reveal" src="assets/img/logo.png" alt="ElyraMC" width="512" height="395">
+      <h1 class="reveal">Your SkyBlock,<br><span class="grad">on autopilot.</span></h1>
+      <p class="lead reveal">Flipping, mining, quests and combat — sixteen Hypixel SkyBlock macros, configured and started from one smooth menu inside the game. No web panel, no account, no price tag.</p>
+      <div class="cta reveal">
+        <a class="btn btn-primary" href="#download" data-tab="download">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
+          Download free
+        </a>
+        <a class="btn btn-ghost" href="#showcase">See it in action</a>
+      </div>
+      <p class="req reveal">Requires <b>Fabric Loader</b> and <b>Fabric API</b> for Minecraft <b>26.1.2</b></p>
+
+      <div class="hero-shot reveal">
+        <div class="frame">
+          <img src="assets/img/shot-title.png" alt="ElyraMC's title screen in Minecraft" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat reveal"><b data-count="16">0</b><span>macros</span></div>
+      <div class="stat reveal"><b data-count="1">0</b><span>in-game menu</span></div>
+      <div class="stat reveal"><b data-count="0">0</b><span>web panels</span></div>
+      <div class="stat reveal"><b>Free</b><span>forever</span></div>
+    </section>
+
+    <!-- Showcase: the video behind the text changes as you scroll. -->
+    <section class="showcase" id="showcase">
+      <div class="showcase-stage" aria-hidden="true">
+        <div class="video" data-video="NPHD6YFEWl4"></div>
+        <div class="video" data-video="rk6HtUtJcAM"></div>
+        <div class="video" data-video="0pKGJqAX6Tg"></div>
+        <div class="stage-shade"></div>
+      </div>
+      <div class="showcase-head">
+        <span class="eyebrow">Showcase</span>
+        <h2>See it in action</h2>
+        <p>Real runs, recorded in game. Scroll through.</p>
+      </div>
+      <div class="chapter" data-index="0">
+        <div class="chapter-card">
+          <span class="chip chip-bazaar">Bazaar · Auction House</span>
+          <h3>Craft Flip</h3>
+          <p>Finds recipes that sell for more than their ingredients, buys them on the Bazaar, crafts at the table and lists the result where it pays — then relists and collects on its own.</p>
+          <ul class="ticks"><li>Checks recipe, skills and price before every buy</li><li>Bazaar offers and AH auctions</li><li>Profit per hour, live in the HUD</li></ul>
+        </div>
+      </div>
+      <div class="chapter" data-index="1">
+        <div class="chapter-card">
+          <span class="chip chip-other">Utilities</span>
+          <h3>Sand Miner</h3>
+          <p>Sprints in clean straight lines round a fixed desert loop, breaking the sand under its feet, and sells to the Bazaar when the bag fills up.</p>
+          <ul class="ticks"><li>One clean line of ESP, the ground ahead marked</li><li>Varies its starting point every run</li><li>Pauses the other macros while it works</li></ul>
+        </div>
+      </div>
+      <div class="chapter" data-index="2">
+        <div class="chapter-card">
+          <span class="chip chip-other">Utilities</span>
+          <h3>Melody's Harp</h3>
+          <p>Stand at the harp and press Start: it opens it and plays every song, note by note, with timing read straight from the game.</p>
+          <ul class="ticks"><li>Every song, start to finish</li><li>Escape hands the harp back to you</li><li>Stays armed across restarts</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- The menu, live. -->
+    <section class="split">
+      <div class="split-text reveal">
+        <span class="eyebrow">One menu</span>
+        <h2>Everything lives<br>inside the game.</h2>
+        <p>Press <kbd>Right Shift</kbd>. Every macro has its own page — what it does, a Start button, what it is making while it runs, and every setting that matters.</p>
+        <ul class="ticks"><li>Grouped by where you sell: NPC, Bazaar, Auction House</li><li>Toggles, sliders and lists — saved per account</li><li>Search, live status, Stop all in one click</li></ul>
+      </div>
+      <div class="split-art reveal">
+        <div class="mock-menu" id="mockMenu">
+          <aside>
+            <img src="assets/img/logo.png" alt="" class="mm-logo">
+            <small>MACROS</small>
+            <a class="mm-nav on"><i class="ic ic-npc"></i>NPC Flipping</a>
+            <a class="mm-nav"><i class="ic ic-bz"></i>Bazaar</a>
+            <a class="mm-nav"><i class="ic ic-ah"></i>Auction House</a>
+            <a class="mm-nav"><i class="ic ic-ut"></i>Utilities</a>
+            <a class="mm-nav"><i class="ic ic-cb"></i>Combat</a>
+            <div class="mm-bottom"><a class="mm-nav"><i class="ic ic-hud"></i>HUD</a><a class="mm-nav"><i class="ic ic-set"></i>Settings</a></div>
+          </aside>
+          <div class="mm-main">
+            <div class="mm-head"><div><b>Craft Flip</b><small>Bazaar</small></div><span class="mm-run">● 1 running</span></div>
+            <div class="mm-hero">
+              <div class="mm-tile"></div>
+              <p><small>WHAT IT DOES</small>Buys ingredients on the Bazaar, crafts them and sells the result on the Bazaar or the AH.</p>
+              <button class="mm-start" id="mmStart"><span>▶</span> Start</button>
+            </div>
+            <small class="mm-group">STRATEGY</small>
+            <div class="mm-card">
+              <div class="mm-row"><div><b>Risk</b><small>How much margin a recipe needs.</small></div><div class="seg" id="mmSeg"><span>Safe</span><span class="on">Balanced</span><span>Aggressive</span></div></div>
+              <div class="mm-row"><div><b>Keep in purse</b><small>Coins it never spends.</small></div><div class="slider"><i id="mmSlide"></i><em id="mmSlideVal">2.5M</em></div></div>
+              <div class="mm-row"><div><b>Sell on the Auction House</b><small>Crafts that sell on the AH.</small></div><div class="tgl on" data-tgl></div></div>
+              <div class="mm-row"><div><b>Burst mode</b><small>Leaves when there is nothing to do.</small></div><div class="tgl" data-tgl></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The HUD, live. -->
+    <section class="split split-rev">
+      <div class="split-text reveal">
+        <span class="eyebrow">Live HUD</span>
+        <h2>Know what it's making,<br>at a glance.</h2>
+        <p>A card for every running macro: profit per hour, what it has made, the next break and the session, with the profit drawn as a curve. Notifications slide in when something sells or needs you.</p>
+        <ul class="ticks"><li>Drag every card anywhere on screen</li><li>Ping, TPS and FPS in one strip</li><li>A soft outline while a macro has the controls</li></ul>
+      </div>
+      <div class="split-art reveal">
+        <div class="hud-wrap">
+          <div class="hud-card">
+            <div class="hud-head"><div class="hud-tile"></div><div><b>Craft Flip</b><small>Running</small></div><span class="live"></span></div>
+            <div class="hud-grid">
+              <div><small>PROFIT / HR</small><b class="good" data-money="4820000">0</b></div>
+              <div class="r"><small>NEXT BREAK</small><b id="hudBreak">12m 30s</b></div>
+              <div><small>MADE</small><b class="good" data-money="3410000">0</b></div>
+              <div class="r"><small>SESSION</small><b id="hudSession">42m 02s</b></div>
+            </div>
+            <div class="hud-bar"><i></i></div>
+            <svg class="hud-spark" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true">
+              <defs><linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34d399" stop-opacity=".35"/><stop offset="1" stop-color="#34d399" stop-opacity="0"/></linearGradient></defs>
+              <path class="spark-fill" d=""/><path class="spark-line" d=""/>
+            </svg>
+            <p class="hud-step">Listing Hyperion on the Auction House at 1.12B</p>
+          </div>
+          <div class="toast t1"><i class="tb good"></i><div><b>Sold Hyperion</b><small>+18.4M profit after tax</small></div></div>
+          <div class="toast t2"><i class="tb warn"></i><div><b>Short rest</b><small>Back in 11 minutes</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Every macro. -->
+    <section class="library" id="macros">
+      <div class="section-head reveal">
+        <span class="eyebrow">The library</span>
+        <h2>Sixteen macros. One click each.</h2>
+        <p>Grouped by where the coins come from.</p>
+      </div>
+      <div class="filters reveal" id="filters">
+        <button class="on" data-f="all">All</button>
+        <button data-f="npc">NPC</button>
+        <button data-f="bz">Bazaar</button>
+        <button data-f="ah">Auction House</button>
+        <button data-f="ut">Utilities</button>
+        <button data-f="cb">Combat</button>
+      </div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <!-- Why it holds up. -->
+    <section class="why">
+      <div class="section-head reveal">
+        <span class="eyebrow">Under the hood</span>
+        <h2>Built to look like a person.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal"><i class="wi wi-pace"></i><h4>Human pace</h4><p>Menus are worked at a calm, varied speed, with a mouse that travels across the screen instead of teleporting.</p></div>
+        <div class="why-card reveal"><i class="wi wi-rest"></i><h4>Rests that make sense</h4><p>Short and long breaks off Hypixel, drawn a little differently every time. Burst mode leaves when there is nothing to do.</p></div>
+        <div class="why-card reveal"><i class="wi wi-path"></i><h4>Smooth pathfinding</h4><p>Walks with eased turns and sprint-jumps only on the straight, drawn in game as one clean line.</p></div>
+        <div class="why-card reveal"><i class="wi wi-safe"></i><h4>Failsafes</h4><p>A stuck watchdog, a circuit breaker for repeated problems, and every macro stops on a ban screen.</p></div>
+        <div class="why-card reveal"><i class="wi wi-ping"></i><h4>Ping-aware clicks</h4><p>Clicks the moment a button appears, paced to your connection — never spammed.</p></div>
+        <div class="why-card reveal"><i class="wi wi-bell"></i><h4>In-game notifications</h4><p>Sales, rests and anything that needs you, as toasts in the corner. Nothing leaves your game.</p></div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="section-head reveal"><span class="eyebrow">FAQ</span><h2>Before you start</h2></div>
+      <div class="faq-list">
+        <details class="reveal"><summary>Is ElyraMC really free?</summary><p>Yes. No licence, no account, no subscription. Download the jar and play.</p></details>
+        <details class="reveal"><summary>What do I need to run it?</summary><p>Minecraft <b>26.1.2</b> with <b>Fabric Loader</b> and <b>Fabric API</b> installed. ElyraMC is a single jar that goes in your <code>mods</code> folder.</p></details>
+        <details class="reveal"><summary>How do I open the menu?</summary><p>Join a world or a server and press <kbd>Right Shift</kbd>. You can change the key in the menu's Settings.</p></details>
+        <details class="reveal"><summary>Does it need a web panel or a Discord bot?</summary><p>No. Everything — every macro, setting and notification — lives inside the game.</p></details>
+        <details class="reveal"><summary>Is it safe to use?</summary><p>Macros are against Hypixel's rules, and no mod can promise you will never be caught. ElyraMC is built to behave like a person and stops everything on a ban screen, but you use it at your own risk.</p></details>
+      </div>
+    </section>
+
+    <section class="final reveal">
+      <h2>Ready when you are.</h2>
+      <p>Free · Minecraft 26.1.2 · Fabric API</p>
+      <a class="btn btn-primary btn-lg" href="#download" data-tab="download">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
+        Download ElyraMC
+      </a>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════════ DOWNLOAD ═══════════════════════════════ -->
+  <main class="view" id="view-download" hidden>
+    <section class="dl">
+      <div class="dl-head reveal">
+        <span class="eyebrow">Download</span>
+        <h1>Get Elyra<span class="grad">MC</span></h1>
+        <p>One jar. Free, for good.</p>
+      </div>
+
+      <div class="dl-card reveal">
+        <img src="assets/img/icon.png" alt="" class="dl-icon" width="72" height="72">
+        <div class="dl-info">
+          <b>ElyraMC 1.0.0</b>
+          <div class="dl-tags"><span>Minecraft 26.1.2</span><span>Fabric</span><span>2.5 MB</span></div>
+          <code class="dl-sha" title="SHA-256">SHA-256 d33a8745…5d91e1c</code>
+        </div>
+        <a class="btn btn-primary btn-lg" href="downloads/elyramc-1.0.0-26.1.2.jar" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
+          Download .jar
+        </a>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <span class="num">1</span>
+          <h4>Install Fabric Loader</h4>
+          <p>Run the Fabric installer and pick Minecraft <b>26.1.2</b>, or create a Fabric 26.1.2 instance in Prism, MultiMC or Modrinth.</p>
+          <a class="link" href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener">fabricmc.net/use/installer ↗</a>
+        </div>
+        <div class="step reveal">
+          <span class="num">2</span>
+          <h4>Add Fabric API</h4>
+          <p>Download Fabric API for <b>26.1.2</b> and drop it into your <code>mods</code> folder. ElyraMC needs it to load.</p>
+          <a class="link" href="https://modrinth.com/mod/fabric-api" target="_blank" rel="noopener">modrinth.com/mod/fabric-api ↗</a>
+        </div>
+        <div class="step reveal">
+          <span class="num">3</span>
+          <h4>Drop in ElyraMC</h4>
+          <p>Put <code>elyramc-1.0.0-26.1.2.jar</code> in the same <code>mods</code> folder, start the game, join SkyBlock and press <kbd>Right Shift</kbd>.</p>
+        </div>
+      </div>
+
+      <div class="dl-note reveal">
+        <i class="wi wi-safe"></i>
+        <p>Macros are against Hypixel's rules. ElyraMC is free and comes with no warranty — use it at your own risk.</p>
+      </div>
+
+      <div class="changelog reveal">
+        <h3>What's in 1.0.0</h3>
+        <ul>
+          <li>A new in-game menu: a page per macro with Start, live stats and settings</li>
+          <li>Animated ElyraMC title screen</li>
+          <li>Live HUD with profit curve, and in-game notifications</li>
+          <li>Cleaner pathfinding ESP</li>
+          <li>Sixteen macros across NPC, Bazaar, AH, utilities and combat</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-brand"><img src="assets/img/icon.png" alt="" width="22" height="22"><span>ElyraMC</span></div>
+    <p>Free to use. Not affiliated with Mojang, Microsoft or Hypixel.</p>
+    <nav><a href="#features" data-tab="features">Features</a><a href="#download" data-tab="download">Download</a><a href="#faq" data-tab="features">FAQ</a></nav>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
