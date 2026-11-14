@@ -290,3 +290,12 @@
 
   route();
 })();
+
+// Count jar downloads as a GoatCounter event (no personal data).
+document.querySelectorAll('a[href$=".jar"]').forEach(function (a) {
+  a.addEventListener("click", function () {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: "download-jar", title: "Download jar", event: true });
+    }
+  });
+});
