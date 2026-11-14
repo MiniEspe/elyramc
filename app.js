@@ -129,6 +129,15 @@
     const v = videos[i];
     if (!v || v.dataset.loaded) return;
     v.dataset.loaded = 1;
+    if (v.dataset.local) {
+      const vid = document.createElement("video");
+      vid.src = v.dataset.local;
+      vid.muted = true; vid.loop = true; vid.autoplay = true;
+      vid.playsInline = true; vid.preload = "metadata"; vid.tabIndex = -1;
+      v.appendChild(vid);
+      vid.play().catch(() => {});
+      return;
+    }
     const id = v.dataset.video;
     const f = document.createElement("iframe");
     f.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&rel=0&playsinline=1&disablekb=1&modestbranding=1&iv_load_policy=3`;
@@ -142,6 +151,8 @@
     chapters.forEach((c, k) => c.classList.toggle("on", k === i));
     load(i);
     load(i + 1);
+    const lv = videos[i] && videos[i].querySelector("video");
+    if (lv) lv.play().catch(() => {});
   }
   const chapterObserver = new IntersectionObserver(entries => {
     for (const en of entries) if (en.isIntersecting) activate(+en.target.dataset.index);
