@@ -26,6 +26,7 @@
     tabLinks.forEach(a => a.classList.toggle("on", a.dataset.tab === tab));
     movePill();
     observeReveals();
+    dispatchEvent(new Event("viewshown"));
     if (anchor) requestAnimationFrame(() => document.getElementById(anchor)?.scrollIntoView({ behavior: "smooth" }));
     else window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
   }
@@ -132,6 +133,7 @@
     if (v.dataset.local) {
       const vid = document.createElement("video");
       vid.src = v.dataset.local;
+      if (v.dataset.poster) vid.poster = v.dataset.poster;
       vid.muted = true; vid.loop = true; vid.autoplay = true;
       vid.playsInline = true; vid.preload = "metadata"; vid.tabIndex = -1;
       v.appendChild(vid);
@@ -151,8 +153,12 @@
     chapters.forEach((c, k) => c.classList.toggle("on", k === i));
     load(i);
     load(i + 1);
-    const lv = videos[i] && videos[i].querySelector("video");
-    if (lv) lv.play().catch(() => {});
+    // Only the layer on show plays; the others wait where they are.
+    videos.forEach((v, k) => {
+      const lv = v.querySelector("video");
+      if (!lv) return;
+      if (k === i) lv.play().catch(() => {}); else lv.pause();
+    });
   }
   const chapterObserver = new IntersectionObserver(entries => {
     for (const en of entries) if (en.isIntersecting) activate(+en.target.dataset.index);
@@ -286,6 +292,128 @@
         if (show) { card.classList.remove("in"); void card.offsetWidth; card.classList.add("in"); }
       });
     }));
+  }
+
+  // ── Pathfinder: three runs, one after another, or the one you pick ───────────
+  const pfVideo = $("#pfVideo"), pfCap = $("#pfCaption"), pfTabs = $$(".pf-tabs button");
+  if (pfVideo) {
+    let pfOn = 0, pfStarted = false;
+    function pfPick(i, play = true) {
+      pfOn = i;
+      pfTabs.forEach((b, k) => {
+        b.classList.toggle("on", k === i);
+        b.setAttribute("aria-selected", k === i);
+        b.querySelector(".pf-prog").style.transform = "scaleX(0)";
+      });
+      const b = pfTabs[i];
+      pfVideo.poster = b.dataset.poster;
+      pfVideo.src = b.dataset.src;
+      pfCap.classList.remove("in"); void pfCap.offsetWidth;
+      pfCap.textContent = b.dataset.cap;
+      pfCap.classList.add("in");
+      if (play) pfVideo.play().catch(() => {});
+    }
+    pfTabs.forEach((b, i) => b.addEventListener("click", () => { pfStarted = true; pfPick(i); }));
+    // Each run plays once, then the next one starts.
+    pfVideo.addEventListener("ended", () => pfPick((pfOn + 1) % pfTabs.length));
+    pfVideo.addEventListener("timeupdate", () => {
+      const d = pfVideo.duration;
+      if (d) pfTabs[pfOn].querySelector(".pf-prog").style.transform = `scaleX(${pfVideo.currentTime / d})`;
+    });
+    new IntersectionObserver(entries => {
+      const vis = entries.some(e => e.isIntersecting);
+      if (vis && !pfStarted) { pfStarted = true; pfPick(0); }
+      else if (vis) pfVideo.play().catch(() => {});
+      else pfVideo.pause();
+    }, { threshold: 0.35 }).observe(pfVideo);
+  }
+
+  // ── The reel: macro clips drifting sideways; click one to watch it bigger ────
+  const REEL = [
+    ["Craft Flip", "Bazaar · AH", "chip-bazaar", "m-craft", "Buys the ingredients, crafts at the table and lists the result where it pays."],
+    ["Auto David's Cloak", "Quests", "chip-other", "m-david", "Moonglade Marsh, Chapter I: walks, talks and buys its way to the cloak."],
+    ["Zealot Macro", "Combat", "chip-combat", "m-zealot", "Frozen Scythe at every Zealot in sight, Special Zealots first."],
+    ["Sand Miner", "Utilities", "chip-other", "m-sand", "Sprints a fixed desert loop, breaking the sand under its feet."],
+    ["Melody's Harp", "Utilities", "chip-other", "m-harp", "Plays every song of the harp, note by note."],
+  ];
+  const track = $("#reelTrack");
+  if (track) {
+    const card = ([name, cat, chip, file], dup) => `
+      <button class="reel-card"${dup ? ' aria-hidden="true" tabindex="-1"' : ""} data-i="${REEL.findIndex(r => r[3] === file)}">
+        <video muted loop playsinline preload="none" poster="assets/video/${file}.jpg" data-src="assets/video/${file}.mp4"></video>
+        <span class="reel-play" aria-hidden="true"></span>
+        <span class="reel-meta"><span class="chip ${chip}">${cat}</span><b>${name}</b></span>
+      </button>`;
+    // Two copies side by side so the drift loops without a seam.
+    track.innerHTML = REEL.map(r => card(r, false)).join("") + REEL.map(r => card(r, true)).join("");
+    // A clip plays only while its card is on screen.
+    const reelObs = new IntersectionObserver(entries => {
+      for (const en of entries) {
+        const v = en.target;
+        if (en.isIntersecting) {
+          if (!v.src) v.src = v.dataset.src;
+          v.play().catch(() => {});
+        } else v.pause();
+      }
+    }, { rootMargin: "0px 120px" });
+    $$("video", track).forEach(v => reelObs.observe(v));
+
+    const lb = $("#lightbox"), lbVideo = $("#lbVideo");
+    function openClip(i) {
+      const [name, cat, chip, file, desc] = REEL[i];
+      lbVideo.poster = `assets/video/${file}.jpg`;
+      lbVideo.src = `assets/video/${file}.mp4`;
+      $("#lbChip").className = "chip " + chip;
+      $("#lbChip").textContent = cat;
+      $("#lbName").textContent = name;
+      $("#lbDesc").textContent = desc;
+      lb.showModal();
+      lbVideo.play().catch(() => {});
+    }
+    track.addEventListener("click", e => {
+      const c = e.target.closest(".reel-card");
+      if (c) openClip(+c.dataset.i);
+    });
+    $("#lbClose").addEventListener("click", () => lb.close());
+    lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
+    lb.addEventListener("close", () => { lbVideo.pause(); lbVideo.removeAttribute("src"); lbVideo.load(); });
+  }
+
+  // ── Download: one jar per Minecraft version ──────────────────────────────────
+  // On a release: drop each jar in downloads/ and update its file, size and SHA-256 here.
+  const VERSIONS = {
+    "26.3":   { mod: "1.1.0", file: "elyramc-1.1.0-26.3.jar",   size: "2.6 MB", sha: "SHA-256 da49ecb7…4d24260f" },
+    "26.2":   { mod: "1.1.0", file: "elyramc-1.1.0-26.2.jar",   size: "2.6 MB", sha: "SHA-256 c67bc3d8…c4b41cdc" },
+    "26.1.2": { mod: "1.1.0", file: "elyramc-1.1.0-26.1.2.jar", size: "2.6 MB", sha: "SHA-256 1976c445…c4dea7af" },
+  };
+  const verSeg = $("#verSeg");
+  if (verSeg) {
+    const verBtns = $$("button", verSeg), verPill = $(".ver-pill", verSeg), dlCard = $("#dlCard");
+    const movePill = () => {
+      const on = verBtns.find(b => b.classList.contains("on"));
+      if (!on || !on.offsetWidth) return;
+      verPill.style.width = on.offsetWidth + "px";
+      verPill.style.transform = `translateX(${on.offsetLeft - 4}px)`;
+    };
+    function pickVersion(v, animate = true) {
+      const d = VERSIONS[v];
+      if (!d) return;
+      verBtns.forEach(b => { const on = b.dataset.v === v; b.classList.toggle("on", on); b.setAttribute("aria-checked", on); });
+      movePill();
+      const set = (k, val) => $$(`[data-dl="${k}"]`).forEach(el => el.textContent = val);
+      set("mc", v); set("mod", d.mod); set("file", d.file); set("size", d.size); set("sha", d.sha);
+      $("#dlBtn").href = "downloads/" + d.file;
+      $("#fapiLink").href = "https://modrinth.com/mod/fabric-api/versions?g=" + v;
+      if (animate) { dlCard.classList.remove("swap"); void dlCard.offsetWidth; dlCard.classList.add("swap"); }
+      try { localStorage.setItem("elyramc.mc", v); } catch (e) {}
+    }
+    verBtns.forEach(b => b.addEventListener("click", () => pickVersion(b.dataset.v)));
+    let saved = null;
+    try { saved = localStorage.getItem("elyramc.mc"); } catch (e) {}
+    pickVersion(VERSIONS[saved] ? saved : "26.3", false);
+    addEventListener("resize", movePill);
+    // The pill can only be measured once the Download tab is on screen.
+    addEventListener("viewshown", () => requestAnimationFrame(movePill));
   }
 
   route();

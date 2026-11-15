@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ElyraMC — Free Hypixel SkyBlock Macros</title>
-  <meta name="description" content="ElyraMC is a free Fabric mod for Minecraft 26.1.2 with Hypixel SkyBlock macros — flipping, mining, quests and combat — run from one smooth in-game menu.">
+  <meta name="description" content="ElyraMC is a free Fabric mod for Minecraft 26.1.2, 26.2 and 26.3 with Hypixel SkyBlock macros — flipping, mining, quests and combat — run from one smooth in-game menu.">
   <meta name="theme-color" content="#05070f">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://miniespe.github.io/elyramc/">
@@ -12,12 +12,12 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ElyraMC">
   <meta property="og:title" content="ElyraMC — Free Hypixel SkyBlock Macros">
-  <meta property="og:description" content="A free Fabric mod for Minecraft 26.1.2: Hypixel SkyBlock macros — flipping, mining, quests and combat — from one in-game menu.">
+  <meta property="og:description" content="A free Fabric mod for Minecraft 26.1.2, 26.2 and 26.3: Hypixel SkyBlock macros — flipping, mining, quests and combat — from one in-game menu.">
   <meta property="og:url" content="https://miniespe.github.io/elyramc/">
   <meta property="og:image" content="https://miniespe.github.io/elyramc/assets/img/shot-title.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ElyraMC — Free Hypixel SkyBlock Macros">
-  <meta name="twitter:description" content="Free Fabric mod for Minecraft 26.1.2 — Hypixel SkyBlock macros from one in-game menu.">
+  <meta name="twitter:description" content="Free Fabric mod for Minecraft 26.1.2, 26.2 and 26.3 — Hypixel SkyBlock macros from one in-game menu.">
   <meta name="twitter:image" content="https://miniespe.github.io/elyramc/assets/img/shot-title.png">
   <link rel="icon" href="assets/img/icon.png">
   <link rel="stylesheet" href="style.css">
@@ -46,7 +46,7 @@
   <main class="view" id="view-features">
 
     <section class="hero">
-      <div class="badge reveal"><span class="dot"></span>100% free · Minecraft 26.1.2 · Fabric</div>
+      <div class="badge reveal"><span class="dot"></span>100% free · Minecraft 26.1.2 – 26.3 · Fabric</div>
       <img class="hero-logo reveal" src="assets/img/logo.png" alt="ElyraMC" width="512" height="395">
       <h1 class="reveal">Your SkyBlock,<br><span class="grad">on autopilot.</span></h1>
       <p class="lead reveal">Flipping, mining, quests and combat — sixteen Hypixel SkyBlock macros, configured and started from one smooth menu inside the game. No web panel, no account, no price tag.</p>
@@ -57,18 +57,18 @@
         </a>
         <a class="btn btn-ghost" href="#showcase">See it in action</a>
       </div>
-      <p class="req reveal">Requires <b>Fabric Loader</b> and <b>Fabric API</b> for Minecraft <b>26.1.2</b></p>
+      <p class="req reveal">Requires <b>Fabric Loader</b> and <b>Fabric API</b> for Minecraft <b>26.1.2</b>, <b>26.2</b> or <b>26.3</b></p>
 
       <div class="hero-shot reveal">
         <div class="frame">
-          <img src="assets/img/shot-title.png" alt="ElyraMC's title screen in Minecraft" loading="lazy">
+          <video src="assets/video/title.mp4" poster="assets/video/title.jpg" autoplay muted loop playsinline aria-label="ElyraMC's animated title screen in Minecraft"></video>
         </div>
       </div>
     </section>
 
     <section class="stats">
       <div class="stat reveal"><b data-count="16">0</b><span>macros</span></div>
-      <div class="stat reveal"><b data-count="1">0</b><span>in-game menu</span></div>
+      <div class="stat reveal"><b data-count="3">0</b><span>Minecraft versions</span></div>
       <div class="stat reveal"><b data-count="0">0</b><span>web panels</span></div>
       <div class="stat reveal"><b>Free</b><span>forever</span></div>
     </section>
@@ -76,10 +76,9 @@
     <!-- Showcase: the video behind the text changes as you scroll. -->
     <section class="showcase" id="showcase">
       <div class="showcase-stage" aria-hidden="true">
-        <div class="video" data-video="NPHD6YFEWl4"></div>
-        <div class="video" data-video="rk6HtUtJcAM"></div>
-        <div class="video" data-video="0pKGJqAX6Tg"></div>
-        <div class="video" data-local="assets/video/zealot.mp4"></div>
+        <div class="video" data-local="assets/video/ui.mp4" data-poster="assets/video/ui.jpg"></div>
+        <div class="video" data-local="assets/video/pf-1.mp4" data-poster="assets/video/pf-1.jpg"></div>
+        <div class="video" data-local="assets/video/david.mp4" data-poster="assets/video/david.jpg"></div>
         <div class="stage-shade"></div>
       </div>
       <div class="showcase-head">
@@ -89,34 +88,52 @@
       </div>
       <div class="chapter" data-index="0">
         <div class="chapter-card">
-          <span class="chip chip-bazaar">Bazaar · Auction House</span>
-          <h3>Craft Flip</h3>
-          <p>Finds recipes that sell for more than their ingredients, buys them on the Bazaar, crafts at the table and lists the result where it pays — then relists and collects on its own.</p>
-          <ul class="ticks"><li>Checks recipe, skills and price before every buy</li><li>Bazaar offers and AH auctions</li><li>Profit per hour, live in the HUD</li></ul>
+          <span class="chip chip-ui">In-game menu</span>
+          <h3>One menu for everything</h3>
+          <p>Press <kbd>Right Shift</kbd> and the whole mod is there: every macro on its own page, its settings right below the Start button, and what it is doing while it runs.</p>
+          <ul class="ticks"><li>Grouped by where the coins come from</li><li>Search, live status, Stop all</li><li>Smooth, animated, scaled to your window</li></ul>
         </div>
       </div>
       <div class="chapter" data-index="1">
         <div class="chapter-card">
-          <span class="chip chip-other">Utilities</span>
-          <h3>Sand Miner</h3>
-          <p>Sprints in clean straight lines round a fixed desert loop, breaking the sand under its feet, and sells to the Bazaar when the bag fills up.</p>
-          <ul class="ticks"><li>One clean line of ESP, the ground ahead marked</li><li>Varies its starting point every run</li><li>Pauses the other macros while it works</li></ul>
+          <span class="chip chip-path">Movement</span>
+          <h3>Pathfinder</h3>
+          <p>Gets anywhere on its own — up hills, through villages, round corners and across gaps — with eased turns and a camera that looks into the bend like a player would.</p>
+          <ul class="ticks"><li>Jumps up steps before it reaches them</li><li>Keeps clear of walls, still fits one-block gaps</li><li>Drawn in game as one clean line</li></ul>
         </div>
       </div>
       <div class="chapter" data-index="2">
         <div class="chapter-card">
-          <span class="chip chip-other">Utilities</span>
-          <h3>Melody's Harp</h3>
-          <p>Stand at the harp and press Start: it opens it and plays every song, note by note, with timing read straight from the game.</p>
-          <ul class="ticks"><li>Every song, start to finish</li><li>Escape hands the harp back to you</li><li>Stays armed across restarts</li></ul>
+          <span class="chip chip-other">Quests</span>
+          <h3>Auto David's Cloak</h3>
+          <p>Moonglade Marsh, Chapter I, played to the end: it walks between the NPCs, talks to each one, buys what the quest asks for and carries on to the cloak.</p>
+          <ul class="ticks"><li>Starts from its page in the menu</li><li>Talks, buys and walks on its own</li><li>Escape hands control back to you</li></ul>
         </div>
       </div>
-      <div class="chapter" data-index="3">
-        <div class="chapter-card">
-          <span class="chip chip-other">Combat</span>
-          <h3>Zealot Macro</h3>
-          <p>Farms Zealots on the End island for Summoning Eyes — walks a fixed loop, clears them as they spawn, and counts drops and Special Zealots straight from the chat.</p>
-          <ul class="ticks"><li>Walks a fixed End loop</li><li>Counts drops and Special Zealots</li><li>Escape hands control back to you</li></ul>
+    </section>
+
+    <!-- The pathfinder on three different runs. -->
+    <section class="pf" id="pathfinder">
+      <div class="section-head reveal">
+        <span class="eyebrow">Pathfinder</span>
+        <h2>Any terrain. No snapping.</h2>
+        <p>Three unedited runs. Pick one, or let them play through.</p>
+      </div>
+      <div class="pf-player reveal">
+        <div class="pf-frame">
+          <video id="pfVideo" muted playsinline preload="none" poster="assets/video/pf-1.jpg"></video>
+          <div class="pf-caption" id="pfCaption"></div>
+        </div>
+        <div class="pf-tabs" role="tablist">
+          <button class="on" role="tab" data-src="assets/video/pf-1.mp4" data-poster="assets/video/pf-1.jpg" data-cap="Climbs, drops and long straights — sprint-jumping only where it is straight.">
+            <span class="pf-num">01</span><b>Up and over</b><small>Hills and long runs</small><i class="pf-prog"></i>
+          </button>
+          <button role="tab" data-src="assets/video/pf-2.mp4" data-poster="assets/video/pf-2.jpg" data-cap="Tight corners between houses, with the camera easing into each turn.">
+            <span class="pf-num">02</span><b>Through the village</b><small>Corners and stairs</small><i class="pf-prog"></i>
+          </button>
+          <button role="tab" data-src="assets/video/pf-3.mp4" data-poster="assets/video/pf-3.jpg" data-cap="Narrow paths and broken ground, never brushing a wall or a fence.">
+            <span class="pf-num">03</span><b>Narrow streets</b><small>Gaps and rough ground</small><i class="pf-prog"></i>
+          </button>
         </div>
       </div>
     </section>
@@ -198,6 +215,10 @@
         <h2>Sixteen macros. One click each.</h2>
         <p>Grouped by where the coins come from.</p>
       </div>
+      <!-- Real runs of a few of them, drifting sideways. Click one to watch it bigger. -->
+      <div class="reel reveal" id="reel" aria-label="Macro clips">
+        <div class="reel-track" id="reelTrack"></div>
+      </div>
       <div class="filters reveal" id="filters">
         <button class="on" data-f="all">All</button>
         <button data-f="npc">NPC</button>
@@ -229,7 +250,7 @@
       <div class="section-head reveal"><span class="eyebrow">FAQ</span><h2>Before you start</h2></div>
       <div class="faq-list">
         <details class="reveal"><summary>Is ElyraMC really free?</summary><p>Yes. No licence, no account, no subscription. Download the jar and play.</p></details>
-        <details class="reveal"><summary>What do I need to run it?</summary><p>Minecraft <b>26.1.2</b> with <b>Fabric Loader</b> and <b>Fabric API</b> installed. ElyraMC is a single jar that goes in your <code>mods</code> folder.</p></details>
+        <details class="reveal"><summary>What do I need to run it?</summary><p>Minecraft <b>26.1.2</b>, <b>26.2</b> or <b>26.3</b> with <b>Fabric Loader</b> and <b>Fabric API</b> installed. ElyraMC is a single jar that goes in your <code>mods</code> folder — pick the one for your version on the Download page.</p></details>
         <details class="reveal"><summary>How do I open the menu?</summary><p>Join a world or a server and press <kbd>Right Shift</kbd>. You can change the key in the menu's Settings.</p></details>
         <details class="reveal"><summary>Does it need a web panel or a Discord bot?</summary><p>No. Everything — every macro, setting and notification — lives inside the game.</p></details>
         <details class="reveal"><summary>Is it safe to use?</summary><p>Macros are against Hypixel's rules, and no mod can promise you will never be caught. ElyraMC is built to behave like a person and stops everything on a ban screen, but you use it at your own risk.</p></details>
@@ -238,7 +259,7 @@
 
     <section class="final reveal">
       <h2>Ready when you are.</h2>
-      <p>Free · Minecraft 26.1.2 · Fabric API</p>
+      <p>Free · Minecraft 26.1.2, 26.2 and 26.3 · Fabric API</p>
       <a class="btn btn-primary btn-lg" href="#download" data-tab="download">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
         Download ElyraMC
@@ -255,16 +276,27 @@
         <p>One jar. Free, for good.</p>
       </div>
 
-      <div class="dl-card reveal">
+      <!-- Pick the Minecraft version; the card, the steps and the button follow it (app.js, VERSIONS). -->
+      <div class="ver reveal">
+        <span class="ver-label">Minecraft version</span>
+        <div class="ver-seg" id="verSeg" role="radiogroup" aria-label="Minecraft version">
+          <button role="radio" data-v="26.3">26.3<em>Latest</em></button>
+          <button role="radio" data-v="26.2">26.2</button>
+          <button role="radio" data-v="26.1.2">26.1.2</button>
+          <span class="ver-pill" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <div class="dl-card reveal" id="dlCard">
         <img src="assets/img/icon.png" alt="" class="dl-icon" width="72" height="72">
         <div class="dl-info">
-          <b>ElyraMC 1.0.1</b>
-          <div class="dl-tags"><span>Minecraft 26.1.2</span><span>Fabric</span><span>2.6 MB</span></div>
-          <code class="dl-sha" title="SHA-256">SHA-256 871278c6…187ae21</code>
+          <b>ElyraMC <span data-dl="mod">1.1.0</span></b>
+          <div class="dl-tags"><span>Minecraft <i data-dl="mc">26.1.2</i></span><span>Fabric</span><span data-dl="size">2.6 MB</span></div>
+          <code class="dl-sha" title="SHA-256" data-dl="sha">SHA-256 1976c445…c4dea7af</code>
         </div>
-        <a class="btn btn-primary btn-lg" href="downloads/elyramc-1.0.1-26.1.2.jar" download>
+        <a class="btn btn-primary btn-lg" id="dlBtn" href="downloads/elyramc-1.1.0-26.1.2.jar" download>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
-          Download .jar
+          Download for <span data-dl="mc">26.1.2</span>
         </a>
       </div>
 
@@ -272,19 +304,19 @@
         <div class="step reveal">
           <span class="num">1</span>
           <h4>Install Fabric Loader</h4>
-          <p>Run the Fabric installer and pick Minecraft <b>26.1.2</b>, or create a Fabric 26.1.2 instance in Prism, MultiMC or Modrinth.</p>
+          <p>Run the Fabric installer and pick Minecraft <b data-dl="mc">26.1.2</b>, or create a Fabric <span data-dl="mc">26.1.2</span> instance in Prism, MultiMC or Modrinth.</p>
           <a class="link" href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener">fabricmc.net/use/installer ↗</a>
         </div>
         <div class="step reveal">
           <span class="num">2</span>
           <h4>Add Fabric API</h4>
-          <p>Download Fabric API for <b>26.1.2</b> and drop it into your <code>mods</code> folder. ElyraMC needs it to load.</p>
-          <a class="link" href="https://modrinth.com/mod/fabric-api" target="_blank" rel="noopener">modrinth.com/mod/fabric-api ↗</a>
+          <p>Download Fabric API for <b data-dl="mc">26.1.2</b> and drop it into your <code>mods</code> folder. ElyraMC needs it to load.</p>
+          <a class="link" id="fapiLink" href="https://modrinth.com/mod/fabric-api/versions?g=26.1.2" target="_blank" rel="noopener">modrinth.com/mod/fabric-api ↗</a>
         </div>
         <div class="step reveal">
           <span class="num">3</span>
           <h4>Drop in ElyraMC</h4>
-          <p>Put <code>elyramc-1.0.1-26.1.2.jar</code> in the same <code>mods</code> folder, start the game, join SkyBlock and press <kbd>Right Shift</kbd>.</p>
+          <p>Put <code data-dl="file">elyramc-1.1.0-26.1.2.jar</code> in the same <code>mods</code> folder, start the game, join SkyBlock and press <kbd>Right Shift</kbd>.</p>
         </div>
       </div>
 
@@ -294,7 +326,13 @@
       </div>
 
       <div class="changelog reveal">
-        <h3>What's new in 1.0.1</h3>
+        <h3>What's new in 1.1.0</h3>
+        <ul>
+          <li>Now for Minecraft <b>26.2</b> and <b>26.3</b> too, alongside 26.1.2 — pick yours above</li>
+          <li>Path, block-breaking and Sand Miner overlays drawn with the new renderer on 26.2 and 26.3</li>
+          <li>Moving a config over from 26.1.2 to 26.3? Set the menu key again in Settings — 26.3 numbers its keys differently</li>
+        </ul>
+        <h3 style="margin-top:22px">What's in 1.0.1</h3>
         <ul>
           <li>Smoother pathfinding: no more walking past a point and turning back to it</li>
           <li>Turns round cleanly when the goal is behind, instead of circling it</li>
@@ -314,6 +352,13 @@
       </div>
     </section>
   </main>
+
+  <!-- A macro clip, bigger. -->
+  <dialog class="lightbox" id="lightbox" aria-label="Macro clip">
+    <button class="lb-close" id="lbClose" aria-label="Close">×</button>
+    <video id="lbVideo" muted loop playsinline></video>
+    <div class="lb-cap"><span class="chip" id="lbChip"></span><b id="lbName"></b><p id="lbDesc"></p></div>
+  </dialog>
 
   <footer class="foot">
     <div class="foot-brand"><img src="assets/img/icon.png" alt="" width="22" height="22"><span>ElyraMC</span></div>
