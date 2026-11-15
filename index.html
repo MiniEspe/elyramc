@@ -258,11 +258,11 @@
       <div class="dl-card reveal">
         <img src="assets/img/icon.png" alt="" class="dl-icon" width="72" height="72">
         <div class="dl-info">
-          <b>ElyraMC 1.0.0</b>
+          <b>ElyraMC 1.0.1</b>
           <div class="dl-tags"><span>Minecraft 26.1.2</span><span>Fabric</span><span>2.6 MB</span></div>
-          <code class="dl-sha" title="SHA-256">SHA-256 c59b49d6…1acedf1</code>
+          <code class="dl-sha" title="SHA-256">SHA-256 871278c6…187ae21</code>
         </div>
-        <a class="btn btn-primary btn-lg" href="downloads/elyramc-1.0.0-26.1.2.jar" download>
+        <a class="btn btn-primary btn-lg" href="downloads/elyramc-1.0.1-26.1.2.jar" download>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
           Download .jar
         </a>
@@ -284,7 +284,7 @@
         <div class="step reveal">
           <span class="num">3</span>
           <h4>Drop in ElyraMC</h4>
-          <p>Put <code>elyramc-1.0.0-26.1.2.jar</code> in the same <code>mods</code> folder, start the game, join SkyBlock and press <kbd>Right Shift</kbd>.</p>
+          <p>Put <code>elyramc-1.0.1-26.1.2.jar</code> in the same <code>mods</code> folder, start the game, join SkyBlock and press <kbd>Right Shift</kbd>.</p>
         </div>
       </div>
 
@@ -294,7 +294,16 @@
       </div>
 
       <div class="changelog reveal">
-        <h3>What's in 1.0.0</h3>
+        <h3>What's new in 1.0.1</h3>
+        <ul>
+          <li>Smoother pathfinding: no more walking past a point and turning back to it</li>
+          <li>Turns round cleanly when the goal is behind, instead of circling it</li>
+          <li>Jumps up steps before reaching them, timed to the game's own physics</li>
+          <li>A more human camera while walking: it looks ahead into turns and eases in and out</li>
+          <li>Keeps clear of walls and fences, and still fits through one-block gaps</li>
+          <li><code>/elyramc pathfinder goto &lt;x&gt; &lt;y&gt; &lt;z&gt;</code> to try the pathfinder by hand</li>
+        </ul>
+        <h3 style="margin-top:22px">What's in 1.0.0</h3>
         <ul>
           <li>A new in-game menu: a page per macro with Start, live stats and settings</li>
           <li>Animated ElyraMC title screen</li>
