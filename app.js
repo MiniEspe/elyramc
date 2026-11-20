@@ -382,9 +382,9 @@
   // ── Download: one jar per Minecraft version ──────────────────────────────────
   // On a release: drop each jar in downloads/ and update its file, size and SHA-256 here.
   const VERSIONS = {
-    "26.3":   { mod: "1.1.0", file: "elyramc-1.1.0-26.3.jar",   size: "2.6 MB", sha: "SHA-256 da49ecb7…4d24260f" },
-    "26.2":   { mod: "1.1.0", file: "elyramc-1.1.0-26.2.jar",   size: "2.6 MB", sha: "SHA-256 c67bc3d8…c4b41cdc" },
-    "26.1.2": { mod: "1.1.0", file: "elyramc-1.1.0-26.1.2.jar", size: "2.6 MB", sha: "SHA-256 1976c445…c4dea7af" },
+    "26.3":   { mod: "1.1.0", file: "elyramc-1.1.0-26.3.jar",   size: "2.6 MB", sha: "SHA-256 c57ba21c…c4e00cd9" },
+    "26.2":   { mod: "1.1.0", file: "elyramc-1.1.0-26.2.jar",   size: "2.6 MB", sha: "SHA-256 055a3ab3…f55be827" },
+    "26.1.2": { mod: "1.1.0", file: "elyramc-1.1.0-26.1.2.jar", size: "2.6 MB", sha: "SHA-256 da5a0fbd…3cbd2814" },
   };
   const verSeg = $("#verSeg");
   if (verSeg) {
